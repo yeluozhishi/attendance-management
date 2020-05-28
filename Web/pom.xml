@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>com.sw</groupId>
+<artifactId>Web</artifactId>
+<version>1.0-SNAPSHOT</version>
+<packaging>war</packaging>
+
+<name>Web Maven Webapp</name>
+<!-- FIXME change it to the project's website -->
+
+<url>http://www.example.com</url>
+
+<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+<parent>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-parent</artifactId>
+  <version>2.2.1.RELEASE</version>
+  <relativePath />
+</parent>
+
+<properties>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
+
+<dependencies>
+  <!-- springboot -->
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>5.2.1.RELEASE</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>5.2.1.RELEASE</version>
+  </dependency>
+
+  <!-- swagger2 -->
+  <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+  <dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>2.9.1</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+  <dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.9.1</version>
+  </dependency>
+
+  <!-- @Valid -->
+  <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+  <dependency>
+    <groupId>javax.validation</groupId>
+    <artifactId>validation-api</artifactId>
+    <version>2.0.1.Final</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.apache.bval/bval-jsr -->
+  <dependency>
+    <groupId>org.apache.bval</groupId>
+    <artifactId>bval-jsr</artifactId>
+    <version>2.0.2</version>
+  </dependency>
+
+  <!-- 实体 -->
+  <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+  <dependency>
+    <groupId>org.hibernate.javax.persistence</groupId>
+    <artifactId>hibernate-jpa-2.1-api</artifactId>
+    <version>1.0.2.Final</version>
+  </dependency>
+
+  <!-- sql查询 -->
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.2.2.RELEASE</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13</version>
+    <scope>test</scope>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.17</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>5.2.1.RELEASE</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <version>2.2.1.RELEASE</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+    <version>2.2.1.RELEASE</version>
+  </dependency>
+
+  <dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-dependencies</artifactId>
+    <version>Hoxton.SR1</version>
+    <type>pom</type>
+    <scope>runtime</scope>
+  </dependency>
+
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+  </dependency>
+</dependencies>
+
+<!--将static下文件设置非拦截-->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes>
+          <exclude>static/**</exclude>
+        </excludes>
+      </resource>
+      <!-- fonts file cannot use filter as the data structure of byte file will be changed via filter -->
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>static/**</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+</project>

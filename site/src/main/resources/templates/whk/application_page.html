@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>application_page</title>
+
+    <link rel="stylesheet" th:href="@{/front/font_awesome_4.6.3/css/font-awesome.min.css}">            <!-- Font awesome -->
+    <link rel="stylesheet" th:href="@{/plug_in/bootstrap_3.3.7_dist/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/plug_in/jedate-6.5.0/skin/jedate.css}">
+    <link rel="stylesheet" th:href="@{/site/css/application_page.css}">
+
+    <script type="text/javascript" th:src="@{/plug_in/js/jquery-3.4.1.js}"></script>
+    <script type="text/javascript" th:src="@{/plug_in/jedate-6.5.0/jedate.js}"></script>
+    <script type="text/javascript" th:src="@{/plug_in/bootstrap_3.3.7_dist/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/site/js/application_page.js}"></script>
+
+</head>
+<body id="body" style="background-color: black">
+<div style="border: 1px solid #000;height: 800px;width: 100%;float:left;min-width: 750px; background-color: white; " class="">
+    <h4 class="text-center">申请</h4>
+    <table id="application_item" class="table table-bordered" style="min-width: 750px;">
+        <tr>
+            <th>
+                <a href="javascript:void(0)" onclick="goPageHC('qian');"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                第<span id="currentPage">1</span>页
+                <a href="javascript:void(0)" onclick="goPageHC('hou');"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </th>
+            <th>原因</th>
+            <th>申报日期</th>
+            <th>审核日期</th>
+            <th>审核结果</th>
+            <th class="text-right" style="width: 40px">
+                <canvas id="myCanvas" width="30px" height="30px" onclick="application_button('display')"></canvas>
+            </th>
+        </tr>
+    </table>
+    <input type="hidden" id="employeeId" th:value="${employeeId}">
+</div>
+<div class="modal fade" data-backdrop="false" id="rwDialog" style="z-index: 0;">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <span style="font-size: 12px;"><strong>请假申请</strong></span>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" id="savePlanWork">
+                    <div class="form-group">
+                        <label>
+                            类型:
+                        </label>
+                        <select class="form-control" name="applicationType" id="Type">
+                            <option value="病假">病假</option>
+                            <option value="事假">事假</option>
+                            <option value="带薪假">带薪假</option>
+                            <option value="带薪假">补签</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>姓名：</label>
+                        <p id="userName" th:text="${name}"></p>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label >时间</label><br/>
+                            <input type="text" name="startTime" id="plan_start" style="width: 160px;" readonly="readonly" >
+                            <span >至</span>
+                            <input type="text" name="endTime" id="plan_end" style="width: 160px;" readonly="readonly" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan_content">
+                            请假事由
+                        </label>
+                        <textarea rows="3" class="form-control" name="applicationReason" id="plan_content" ></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" onclick="application_button('close')">关闭</button>
+                <button class="btn btn-primary" onclick="formSubmit()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>employeeInfo</title>
+
+    <!-- css -->
+    <link th:href="@{/plug_in/bootstrap_3.3.7_dist/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/font_awesome_4.6.3/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/site/css/custom-styles.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/plug_in/css/dataTables.bootstrap.css}" rel="stylesheet" type="text/css" />
+
+    <!-- js -->
+    <script type="text/javascript" th:src="@{/plug_in/js/jquery-3.4.1.js}"></script>
+    <script type="text/javascript" th:src="@{/plug_in/bootstrap_3.3.7_dist/js/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/plug_in/js/jquery.metisMenu.js}"></script>
+    <script type="text/javascript" th:src="@{/plug_in/js/jquery.dataTables.js}"></script>
+    <script type="text/javascript" th:src="@{/plug_in/js/dataTables.bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/site/js/custom-scripts.js}"></script>
+    <script type="text/javascript" th:src="@{/site/js/employeeInfo.js}"></script>
+    <script type="text/javascript" th:src="@{/site/js/logout.js}"></script>
+
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/admin/index"><i class="fa fa-gear"></i> <strong>后台</strong></a>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right">
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <input id="loginUser" type="hidden"  th:value="${loginUser}"/>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a onclick="update_psw()"><i class="fa fa-gear fa-fw"></i> 修改密码</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a onclick="manager_logout()"><i class="fa fa-sign-out fa-fw"></i> 登出</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+<!--        <div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>-->
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a href="/admin/index"><i class="fa fa-dashboard"></i> 打卡概览</a>
+                </li>
+                <li>
+                    <a class="active-menu" href="/admin/administrators_employeeInfo"><i class="fa fa-table"></i> 员工信息</a>
+                </li>
+                <li>
+                    <a href="/admin/administrators_notice"><i class="fa fa-desktop"></i> 公告</a>
+                </li>
+                <li>
+                    <a href="/admin/administrators_check"><i class="fa fa-check"></i> 审核</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p style="display: inline-block;">职员表</p>
+                            <div style="display: inline-block; float: right;margin-top: 16px;">
+                                <button class="btn btn-primary" onclick="add_employee()">添加</button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>姓名</th>
+                                        <th>性别</th>
+                                        <th>年龄</th>
+                                        <th>职位</th>
+                                        <th>薪水</th>
+                                        <th>入职时间</th>
+                                        <th>离职时间</th>
+                                        <th>账号（点击查看）</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="content">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+            <!-- /. ROW  -->
+
+            <!-- 员工信息dialog -->
+            <div class="" data-backdrop="false" id="rwDialog" style="z-index: 50; width: 1580px;height: 1200px;position: absolute;top: 0px;left: 0px;display: none;">
+                <div class="modal-dialog" >
+                    <div class="modal-content" style="margin-top: 200px;">
+                        <div class="modal-header">
+                            <span style="font-size: 12px;"><strong>员工信息</strong></span>
+                        </div>
+                        <div class="modal-body">
+                            <form action="<%=basePath%>savePlanWork" method="post" id="savePlanWork" data-id="">
+                                <div class="form-group">
+                                    <label>姓名</label>
+                                    <input class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>性别</label>
+                                    <input class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>年龄</label>
+                                    <input class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>职位</label>
+                                    <input class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>薪水</label>
+                                    <input class="form-control">
+                                </div>
+                                <div class="form-group" id="entryTime">
+                                    <label>入职时间</label>
+                                    <input class="form-control">
+                                </div>
+                                <div class="form-group" id="quitTime">
+                                    <label>离职时间</label>
+                                    <input class="form-control">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" onclick="close_dia('rwDialog')">关闭</button>
+                            <button class="btn btn-primary" onclick="save_employee()">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 删除dialog -->
+            <div class="" data-backdrop="false" id="delete_Dialog" style="z-index: 60; width: 1580px;height: 1200px;position: absolute;top: 0px;left: 0px;display: none;">
+                <div class="modal-dialog" >
+                    <div class="modal-content" style="margin-top: 200px;">
+                        <div class="modal-header">
+                            <span style="font-size: 12px;"><strong>删除</strong></span>
+                        </div>
+                        <div class="modal-body" style="display: flex;">
+                            确定删除<div id="message" data-type=""></div>吗？
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" onclick="close_dia('delete_Dialog')">关闭</button>
+                            <button class="btn btn-primary" onclick="certain()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 账户dialog -->
+            <div class="" data-backdrop="false" id="account_Dialog" style="z-index: 50; width: 1580px;height: 1200px;position: absolute;top: 0px;left: 0px;display: none;">
+                <div class="modal-dialog" >
+                    <div class="modal-content" style="margin-top: 200px;">
+                        <div class="modal-header">
+                            <span style="font-size: 12px;"><strong>账户</strong></span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>编号</label>
+                                <input class="form-control" style="width: 300px;" disabled="disabled" id="account">
+                            </div>
+                            <div class="form-group">
+                                <label>账户名</label>
+                                <input class="form-control" style="width: 300px;">
+                            </div>
+                            <div class="form-group">
+                                <label>密码</label>
+                                <input class="form-control" style="width: 300px;">
+                            </div>
+                            <div class="form-group" id="createTime">
+                                <label>创建时间</label>
+                                <input class="form-control" disabled="disabled" style="width: 300px;">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal" onclick="close_dia('account_Dialog')">关闭</button>
+                            <button class="btn btn-primary" onclick="delete_account()" style="display: none;" id="delete_ac">删除</button>
+                            <button class="btn btn-primary" onclick="certain_add()">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- hide table -->
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+
+</body>
+</html>

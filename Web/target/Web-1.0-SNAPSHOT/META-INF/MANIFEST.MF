@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: Hasee
+Build-Jdk: 13.0.2
+Implementation-Title: Web Maven Webapp
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: com.sw
+Main-Class: ${start-class}
+

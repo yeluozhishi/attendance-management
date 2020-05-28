@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>attendance</title>
+<!-- css -->
+    <link rel="stylesheet" th:href="@{/plug_in/bootstrap_3.3.7_dist/css/bootstrap.css}">               <!-- Bootstrap style -->
+    <link rel="stylesheet" th:href="@{/site/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/plug_in/calendar/simple_calendar.css}">
+<!-- js -->
+    <script type="text/javascript" th:src="@{/plug_in/js/jquery-3.4.1.js}"></script>
+    <script type="text/javascript" th:src="@{/site/js/attendance.js}"></script>
+    <script type="text/javascript" th:src="@{/plug_in/calendar/simple_calendar.js}"></script>
+</head>
+<body id="body">
+<div id="di1hang">
+    <div style="border: 1px solid #000;height: 300px;width: 70%;
+                                float:left;min-width: 750px;background: white;border-radius: 5px;" >
+        <!--  任务面板  -->
+        <h4 class="text-center">公告面板</h4>
+        <table id="mission_item" class="table table-bordered" style="min-width: 750px;">
+            <tr>
+                <th style="width: 120px;">
+                    <a href="javascript:void(0)" onclick="goPageHC('qian');"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    第<span id="currentPage">1</span>页
+                    <a href="javascript:void(0)" onclick="goPageHC('hou');"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </th>
+                <th style="width: 170px;">创建时间</th>
+                <th>内容</th>
+                <th  class="text-right">
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div  style="border: 1px solid #000;height: 300px;width:29%;float:right;" >
+        <!--  考勤面板  -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>考勤</strong>
+            </div>
+            <div class="panel-body">
+                <p class="text-center" id="sstime"></p>
+                <p class="text-center"><button type="button" class="btn btn-primary" onclick="ckinOpen();">&nbsp;&nbsp;&nbsp; 打 &nbsp;&nbsp;&nbsp; 卡 &nbsp;&nbsp;&nbsp;</button></p>
+
+                <div id="ckinP1" class="text-center" style="white-space:normal;word-break:break-all;word-wrap:break-word;">
+                </div>
+                <div id="ckinP2" class="text-center" style="white-space:normal;word-break:break-all;word-wrap:break-word;">
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                每天8:30打卡为正常打卡时间,5:00为下班时间,不许迟到,早退.
+            </div>
+        </div>
+    </div>
+</div>
+<div style="padding-top: 15px;clear:both;" id="di2hang">
+    <div class="panel panel-default"
+         style="border: 1px solid #000;height: 410px;width:70%;float: left;">
+        <!--  备忘录展示面板  -->
+        <div class="panel-heading">
+            <strong>备忘录</strong>
+            <p style="display: inline-block;" id="time"></p>
+        </div>
+        <div class="panel-body">
+            <div class="list" >
+                <div data-number="1" date-year="1" date-month="1" date-day="1"
+                     class="day-event" style="display: block;">
+                    <a class="close fontawesome-remove" href="#"></a>
+                    <div style="width: 100%;height: 30px;display: flex;margin-bottom: 5px;">
+                        标题：<P id="record_title_p" style="display: block;" class="title"></P><input id="record_title" class="title" style="display: none;" placeholder="备忘录用户手册" />
+                    </div>
+                    <textarea id="record_content" class="record" rows="10" cols="30" disabled="disabled" placeholder="增加备忘录,点击右侧日历,填写要记录的事情,保存就可以咯."></textarea>
+                </div>
+            </div>
+            <button onclick="Edit_or_Save(document.getElementById('record_title'),document.getElementById('record_content'),this)">编辑</button>
+        </div>
+
+    </div>
+    <div id="container" class="calendar hidden-print"
+         style="border-radius: 3px;;height: 410px;width: 29%;float: right;background-color: white;">
+        <!--  备忘录日历  -->
+    </div>
+</div>
+</body>
+</html>

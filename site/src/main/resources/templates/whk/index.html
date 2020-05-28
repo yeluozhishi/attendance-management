@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Home</title>
+	<!-- load stylesheets -->
+	<link rel="stylesheet" th:href="@{/front/font_awesome_4.6.3/css/font-awesome.min.css}">            <!-- Font awesome -->
+	<link rel="stylesheet" th:href="@{/plug_in/bootstrap_3.3.7_dist/css/bootstrap.css}">               <!-- Bootstrap style -->
+	<link rel="stylesheet" th:href="@{/site/css/layout.css}">
+	<!-- load javascript -->
+	<script type="text/javascript" th:src="@{/plug_in/js/jquery-3.4.1.js}"></script>
+	<script type="text/javascript" th:src="@{/plug_in/js/html5shiv3.7.3.js}"></script>
+	<script type="text/javascript" th:src="@{/plug_in/js/respond1.4.2.js}"></script>
+	<script type="text/javascript" th:src="@{/site/js/index.js}"></script>
+</head>
+
+<body>
+<!-- Content -->
+<div style="height: 100px;background-color: #4d5e70; width: 100%;line-height: 165px;">
+	<p style="font-size: 30px;color: #fff; padding-left: 60px; height: 100px;">考勤管理系统</p>
+</div>
+<div class="container-fluid">
+	<div id="warp">
+		<div id="leftMeun" class="leftMeun" >
+			<div id="personInfor">
+				<p id="userName" th:text="${userInfo.name}"></p>
+				<p id="loginUser" th:text="${loginUser}"></p>
+				<input type="hidden" id="employeeId" th:value="${userInfo.employeeId}">
+				<input type="hidden" id="sex" th:value="${userInfo.sex}">
+				<input type="hidden" id="age" th:value="${userInfo.age}">
+				<input type="hidden" id="entryTime" th:value="${userInfo.entryTime}">
+				<input type="hidden" id="position" th:value="${userInfo.position}">
+			</div>
+			<div style="height: 1px;background-color: #fff;"></div>
+			<ul class="nav nav-pills nav-stacked">
+				<li role="role1" >
+					<a onclick="page_reload()" target="content">首页</a>
+				</li>
+				<li role="role2" >
+					<a role="button" data-toggle="collapse" onclick="application_page()"
+					   aria-expanded="false" aria-controls="collapse_sqsp">
+						申请
+					</a>
+				</li>
+				<li role="role1"  >
+					<a role="button" onclick="funllCalendar()" data-toggle="collapse"
+					   aria-expanded="false" aria-controls="collapse_zh">
+						打卡概览
+					</a>
+				</li>
+				<li role="role1" ><a role="button" onclick="display_second()">其他</a></li>
+				<li>
+					<div style="display: none" id="collapse_zh">
+						<ul style="font-size: 12px; padding-left: 15px;" class="nav nav-pills nav-stacked bg-info">
+							<li><a onclick="update_psw()">修改密码</a></li>
+							<li><a onclick="logout()">退出</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<div style="height: 1px;background-color: #fff;"></div>
+		</div>
+		<div id="rightContent">
+			<iframe id="iframe_content" class="contain_page" scrolling="no" src="/site/attendance" ></iframe>
+		</div>
+	</div>
+</div>
+</body>
+</html>

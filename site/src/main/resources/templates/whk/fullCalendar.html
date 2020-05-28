@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>full calendar</title>
+</head>
+<link rel="stylesheet" th:href="@{/plug_in/fullcalendar-3.10.0/fullcalendar.css}">
+<link rel="stylesheet" th:href="@{/plug_in/fullcalendar-3.10.0/fullcalendar.print.css}" media="print">
+
+<!--<script type="text/javascript" th:src="@{/plug_in/js/jquery-3.4.1.js}"></script>-->
+<!--<script type="text/javascript" th:src="@{/plug_in/js/jquery-3.4.1.min.js}"></script>-->
+<script type="text/javascript" th:src="@{/plug_in/fullcalendar-3.10.0/lib/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/plug_in/fullcalendar-3.10.0/lib/jquery-ui.min.js}"></script>
+<script type="text/javascript" th:src="@{/plug_in/fullcalendar-3.10.0/lib/moment.min.js}"></script>
+<script type="text/javascript" th:src="@{/plug_in/fullcalendar-3.10.0/fullcalendar.min.js}"></script>
+<script type="text/javascript" th:src="@{/plug_in/fullcalendar-3.10.0/locale-all.js}"></script>
+<script type="text/javascript" th:src="@{/site/js/calendar.js}"></script>
+
+</head>
+<body style="background-color: white">
+    <div id='top' style="background: #eee;border-bottom: 1px solid #ddd;padding: 0 10px;line-height: 40px;font-size: 12px;">
+        Locales:
+        <select id='locale-selector'></select>
+    </div>
+
+    <div id='calendar' style="max-width: 900px;"></div>
+    <input type="hidden" id="loginUser" th:value="${loginUser}">
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas 绘制齿轮</title>
+    <script>
+        window.onload = function (){
+
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+
+//位置
+            var centerX = canvas.width/2;
+            var centerY = canvas.height/2;
+
+//齿轮半径
+            var outerRadius = 95;
+
+//齿轮交叉口半径
+            var innerRadius = 50;
+
+//除去牙齿的齿轮半径
+            var midRadius = innerRadius*1.6;
+
+//圆孔半径
+            var holeRadius = 10;
+
+// NUM点是需要点的数量
+//使轮齿。齿轮齿数
+//等于一半的点数。在这个配方，
+//我们将用时50分，这相当于25个齿轮齿。
+            var numPoints = 50;
+
+//绘制齿轮的齿数
+            context.beginPath();
+
+//设置的lineJoine属性圆滑，轮齿是平的。
+            context.lineJoin = "bevel";
+
+//通过循环点的数量，以创建齿轮形状
+            for (var n=0; n<numPoints; n++)
+            {
+                var radius = null;
+                if (n%2==0)
+                {
+                    radius = outerRadius;
+                }
+                else{
+                    radius = innerRadius;
+                }
+
+                var theta = ((Math.PI*2)/numPoints)*(n+1);
+                var x = (radius*Math.sin(theta))+centerX;
+                var y = (radius*Math.cos(theta))+centerY;
+                if (n==0)
+                {
+                    context.moveTo(x,y);
+                }
+                else {
+                    context.lineTo(x,y);
+                }
+            }
+
+            context.closePath();
+
+            context.lineWidth = 5;
+            context.strokeStyle="#004CB3";
+            context.stroke();
+
+            context.beginPath();
+            context.arc(centerX,centerY,midRadius,0,Math.PI*2,false);
+
+            var grd = context.createLinearGradient(230,0,370,200);
+            grd.addColorStop(0,"#8ED6FF");
+            grd.addColorStop(1,"#004CB3");
+            context.fillStyle = grd;
+            context.fill();
+            context.lineWidth = 5;
+            context.strokeStyle="#004CB3";
+            context.stroke();
+
+            context.beginPath();
+            context.arc(centerX,centerY,holeRadius,0,Math.PI*2,false);
+            context.fillStyle = "white";
+            context.fill();
+            context.strokeStyle = "#004CB3";
+            context.stroke();
+        }
+
+    </script>
+</head>
+
+<body style="margin:100px 10px;">
+<canvas id="myCanvas" width="600px" height="250" style="border:2px solid black;"></canvas>
+</body>
+</html>

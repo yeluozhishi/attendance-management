@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+<title>login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+	function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<!-- font files  -->
+
+<!-- css files -->
+	<link th:href="@{/site/css/login.css}" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" th:src="@{/plug_in/js/jquery-3.4.1.js}"></script>
+	<script type="text/javascript" th:src="@{/plug_in/js/gVerify.js}"></script>
+	<script type="text/javascript" th:src="@{/site/js/login.js}"></script>
+
+	<!-- /css files -->
+</head>
+<body>
+<h1></h1>
+<div class="log">
+	<div class="content1">
+		<h2>管理员登录</h2>
+		<form>
+			<input type="text" id="userName" value="USERNAME" onfocus="this.value = '';">
+			<input type="password" id="psw" value="PASSWORD" onfocus="this.value = '';">
+			<div style=" height: 46px;">
+				<input type="text" id="verifyCode" onfocus=" this.value = '';" >
+				<div id="verify_img"></div>
+<!--				<div class="img_checkCode" id="verify-img"></div>-->
+			</div>
+			<div class="button-row">
+				<input type="button" class="sign-in" onclick="login(this)" value="Sign In"/>
+				<input type="reset" class="reset" value="Reset"/>
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="footer">
+	<p>2020 whk</a></p>
+</div>
+
+</body>
+</html>

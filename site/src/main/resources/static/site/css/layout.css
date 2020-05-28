@@ -1,0 +1,319 @@
+
+body {
+    height: auto;
+    background: #000000 none repeat scroll center bottom;
+    min-width: 100%;
+}
+.container-fluid {
+    padding-left: 0 !important;
+}
+#wrap {
+    background: #eff3f6 none repeat scroll center bottom;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+.leftMeun {
+    background: #000000 none repeat scroll center bottom;
+    box-sizing: border-box;
+    height: 100%;
+    position: absolute;
+    width: 200px;
+}
+.leftMeun > div {
+    padding-left: 20px;
+}
+#rightContent {
+    box-sizing: border-box;
+    clear: both;
+    color: #717592;
+    float: left;
+    min-height: 500px;
+    min-width: 100%;
+    overflow-x: hidden;
+    padding-left: 200px;
+}
+#logoDiv {
+    background-color: #354457;
+    color: #fff;
+    font-size: 17px;
+    height: 70px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    vertical-align: bottom;
+}
+#logo {
+    height: 30px;
+    padding-right: 5px;
+}
+#logoDiv span {
+    vertical-align: bottom;
+}
+#personInfor {
+    border-bottom: 1px solid #354457;
+    color: #b3bcc5;
+    margin: 0 5px;
+    overflow-x: hidden;
+    padding: 10px 5px 10px 20px;
+}
+#personInfor p {
+    font-size: 12px;
+    margin-left: -5px;
+}
+#personInfor a {
+    color: #b3bcc5;
+    text-decoration: underline;
+}
+#userName {
+    font-size: 15px !important;
+    margin: 0;
+    padding: 0;
+}
+.line-div {
+    color: #f00;
+    height: 5px;
+}
+.meun dl {
+    padding: 0 10px;
+}
+.meun-title {
+    color: #828e9a;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.meun-item {
+    color: #aab1b7;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+}
+.meun-item a {
+    color: #aab1b7;
+    display: block;
+}
+.meun-item-active a {
+    color: #c4c7cc;
+    display: block;
+}
+.meun-item img {
+    height: 20px;
+    padding-right: 8px;
+}
+.meun-item-active {
+    background-color: #3d4e60;
+    border-right: 4px solid #647f9d;
+    color: #fff;
+}
+.check-div {
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 70px;
+    line-height: 70px;
+    min-width: 824px !important;
+    padding-left: 30px;
+}
+.check-div button {
+    font-size: 12px;
+    font-weight: bold;
+}
+.check-div select {
+    color: #ccc;
+    display: inline;
+    height: 26px;
+    width: 120px !important;
+}
+.check-div input {
+    display: inline;
+    width: 200px !important;
+}
+.tab-pane {
+    color: #9095ab;
+}
+.tableHeader {
+    background-color: #e3e8ee;
+    color: #646987;
+    font-size: 12px;
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 30px;
+    text-align: left;
+}
+.codeTop {
+    text-align: right;
+}
+.tablebody {
+    margin: 20px 30px;
+    text-align: left;
+}
+.tablebody .row {
+    background-color: #fff;
+    height: 70px;
+    line-height: 70px;
+    margin-top: 10px;
+}
+.footer {
+    float: right;
+    margin-right: 20px;
+}
+.modal-header {
+}
+.modal-title {
+    font-weight: bold;
+}
+.expand-col {
+    margin-top: 30px;
+    padding: 0;
+}
+.levl2 {
+    padding-left: 30px;
+}
+.levl3 {
+    padding-left: 40px;
+}
+.sitTable {
+    background-color: #fff;
+    padding-right: 30px;
+}
+.sitTable table {
+    background-color: #fff;
+    border-top: medium none;
+}
+.sitTable .table > tbody > tr:first-child > td {
+    border-top: medium none;
+}
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px 15px !important;
+    vertical-align: middle !important;
+}
+.btn {
+    border: medium none;
+}
+.toggle-btn {
+    color: #212121;
+    cursor: pointer;
+    display: none;
+    float: left;
+    font-size: 20px;
+    height: 50px;
+    padding: 15px;
+    transition: all 0.2s ease-out 0s;
+    width: 52px;
+}
+.pd0px {
+    padding-left: 200px !important;
+}
+select {
+}
+
+.input-xs {
+    height: 25px;
+    line-height: 25px;
+}
+.btn-white {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc !important;
+    font-weight: normal !important;
+    margin-right: 10px;
+}
+.btn-green {
+    background: #529373 none repeat scroll 0 0;
+    border: 1px solid #ccc !important;
+    color: #fff;
+    font-weight: normal !important;
+    margin-right: 10px;
+}
+.btn-yellow {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #eab67c !important;
+    color: #eab67c !important;
+    font-weight: normal !important;
+    margin-right: 10px;
+}
+.gray {
+    color: #b7b7b7;
+    font-weight: normal;
+    padding: 0 10px;
+}
+.footer .glyphicon {
+    background-color: #fff;
+    color: #00bdef;
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 4px;
+}
+.zhi {
+    border: medium none;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    height: 21px !important;
+    line-height: 20px;
+    margin-top: 33px;
+    width: 50px !important;
+}
+.duiqi {
+    margin-left: -26px !important;
+    margin-top: 7px;
+    width: 200px !important;
+}
+.form-horizontal .form-group {
+    margin-right: -100px !important;
+}
+.select-duiqi {
+    color: #ccc !important;
+    height: 25px !important;
+    margin-left: -25px;
+    margin-top: 6px;
+    width: 200px !important;
+}
+.linkCcc {
+    color: #9095ab !important;
+    padding-right: 10px;
+    text-decoration: underline;
+}
+.linkCcc:hover {
+    color: #000 !important;
+    text-decoration: underline;
+}
+.modal {
+    color: #4b4b4b;
+}
+.top100 {
+    height: 40px !important;
+    line-height: 67px !important;
+    margin-top: -25px !important;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+.contain_page{
+    width: 100%;
+    height: 1021px;
+    border: 0px;
+}
+
+.record{
+    width:100%;/*自动适应父布局宽度*/
+    height: 270px;
+    overflow:auto;
+    word-break:break-all;
+    /*在ie中解决断行问题(防止自动变为在一行显示，主要解决ie兼容问题，ie8中当设宽度为100%时，文本域类容超过一行时，
+    当我们双击文本内容就会自动变为一行显示，所以只能用ie的专有断行属性“word-break或word-wrap”控制其断行)*/
+    border: 0px;
+    resize: none;
+}
+
+.application_dialog{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
